@@ -123,6 +123,15 @@ internal static partial class Program
                 { var button = Get<Button>(main, id); Check(button.ActualHeight >= 30 && new Rect(presented.RenderSize).Contains(new Rect(button.TranslatePoint(new Point(), presented), button.RenderSize)), $"{id} remains visible at minimum width and {scale}% text"); }
             }
             Theme(100); host.Width = 1180; host.Height = 800; Render(presented, 1180, 800, Path.Combine(output, "dashboard.png"));
+            if (Environment.GetCommandLineArgs().Contains("--theme-gallery"))
+            {
+                foreach (var themeId in new[] { "midnight", "graphite", "ocean", "forest", "amethyst", "rose", "sand", "light", "contrast" })
+                {
+                    appearanceType.GetMethod("Apply")!.Invoke(null, new object[] { new AppearancePreferences(Theme: themeId) });
+                    Render(presented, 1180, 800, Path.Combine(output, "dashboard-theme-" + themeId + ".png"));
+                }
+                Theme(100);
+            }
             typeof(MainWindow).GetField("_gamesHub", BindingFlags.Instance | BindingFlags.NonPublic)!.SetValue(main, games);
             typeof(MainWindow).GetField("_workspacesPanel", BindingFlags.Instance | BindingFlags.NonPublic)!.SetValue(main, collections);
             Get<ContentControl>(main, "GamesPageHost").Content = games;

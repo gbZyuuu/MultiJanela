@@ -26,3 +26,7 @@ Não publique a pasta de dados do MultiJanela, cookies, senhas, tickets, tokens,
 Keep API/Nexus keys private and leave integrations disabled unless needed. Grant only the required actions. Review scripts before running; never paste passwords, cookies or private server links into shared code. A connected Nexus client is separate software and must be trusted independently.
 
 The optional password vault protects manager JSON, not browser databases or logs. Protect the entire data directory and keep encrypted backups. Do not open vault data with an incompatible legacy manager. The vault password cannot be recovered by the project.
+
+## Website demo
+
+The GitHub Pages demo uses fictional data in browser memory. Only language, theme and motion preferences are saved in local storage. It has no login fields, does not request account cookies, and does not contact Roblox or open a local API port. There are no analytics scripts. Clicking download or repository links opens GitHub. Reload the page to reset sample profiles, or use Reset within the demo.

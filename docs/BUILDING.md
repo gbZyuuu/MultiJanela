@@ -25,3 +25,14 @@ The public package check is portable and has no parent-repository dependency. Bu
 ## Português
 
 Instale SDK .NET 8, Python 3.11+ e PowerShell no Windows. Execute os comandos acima na raiz. Os testes usam contas sintéticas e janelas de teste; não autenticam contas reais ou iniciam Roblox. O script de pacote exige a versão correta, inclui licenças e verifica a lista de arquivos e seus hashes. Nenhum teste certifica aceitação do Roblox ou proteção contra punições.
+
+## Website
+
+The GitHub Pages site in `docs/` is static HTML, CSS and JavaScript. No package installation or build step is required.
+
+```powershell
+python -m http.server 4177 --bind 127.0.0.1 --directory docs
+node --test tests/website-demo.test.mjs
+```
+
+Open `http://127.0.0.1:4177`. The demo uses fictional in-memory data and persists only appearance/language preferences. It never authenticates to Roblox or launches processes. The desktop screenshot fixture supports `--studio --theme-gallery` to capture all nine dashboard palettes with synthetic profiles.

@@ -1,5 +1,12 @@
 # Changelog
 
+## Website — October 25, 2026
+
+- Interactive browser demo with sample accounts, sessions, launch queues, games, social tools and a rotatable sample avatar.
+- Nine live themes, instant English/Portuguese switching, fullscreen exploration and reduced-motion support.
+- Expanded desktop screenshot gallery and README previews of every theme.
+- No login required; demo actions use fictional data and do not connect to Roblox.
+
 ## 1.0.0 — Initial release
 
 - Accounts and open sessions in separate dashboard sections, with visible CPU controls, PID, version and resource usage.

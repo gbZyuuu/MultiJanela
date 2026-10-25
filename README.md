@@ -1,12 +1,12 @@
 <p align="center"><img src="docs/images/readme-banner.svg" alt="MultiJanela — more accounts, less friction" width="100%"></p>
 <p align="center"><a href="https://github.com/gbZyuuu/MultiJanela/releases/download/v1.0.0/MultiJanela-1.0.0-win-x64.zip"><img src="docs/images/download-windows.svg" width="380" alt="Download for Windows"></a></p>
-<p align="center">Windows 10/11 x64 · Portable · Free &amp; open source<br><a href="https://gbzyuuu.github.io/MultiJanela/">Website</a> · <a href="PUBLIC_README.md">English / Português</a> · <a href="CHANGELOG.md">Release notes</a></p>
+<p align="center">Windows 10/11 x64 · Portable · Free &amp; open source<br><a href="https://gbzyuuu.github.io/MultiJanela/">Interactive demo</a> · <a href="PUBLIC_README.md">English / Português</a> · <a href="CHANGELOG.md">Release notes</a></p>
 
 # Your Roblox accounts. One comfortable workspace.
 
 MultiJanela brings accounts, running sessions and useful controls together in a native Windows app. Clear information, responsive controls and room to focus.
 
-![MultiJanela dashboard with sample accounts](docs/images/accounts.png)
+![MultiJanela dashboard with sample accounts](docs/images/dashboard-midnight.png)
 
 ## Made for your everyday setup
 
@@ -18,6 +18,40 @@ MultiJanela brings accounts, running sessions and useful controls together in a 
 | Arrange, focus and close windows | Browse communities and permitted member actions | Per-client audio and background muting |
 
 Also included: Roblox version selection, reconnect after a crash, RAM/VRAM monitoring, schedules, compatible TinyTask recordings, protected backups, optional local API/Nexus integrations and scoped JavaScript tools.
+
+## Try it before downloading
+
+[**Open the interactive demo →**](https://gbzyuuu.github.io/MultiJanela/#demo)
+
+Open sample sessions, arrange windows, reorder a queue, browse example games, rotate a sample avatar and switch between all nine themes. No login or download required. The demo uses fictional data and does not connect to Roblox.
+
+## A closer look
+
+These are captures of the desktop interface with sample accounts.
+
+| Launch sequences | Games and servers |
+| --- | --- |
+| ![Ordered launch queue](docs/images/launch.png) | ![Game details and public server browser](docs/images/game-detail.png) |
+
+| Friends | Groups and presets |
+| --- | --- |
+| ![Friend controls with sample profiles](docs/images/manage-friends-native.png) | ![Saved groups and launch presets](docs/images/collections-form.png) |
+
+### Nine ways to make it yours
+
+| Midnight | Ocean | Forest |
+| --- | --- | --- |
+| ![Midnight dashboard](docs/images/dashboard-midnight.png) | ![Ocean dashboard](docs/images/dashboard-ocean.png) | ![Forest dashboard](docs/images/dashboard-forest.png) |
+
+| Amethyst | Rose | Graphite |
+| --- | --- | --- |
+| ![Amethyst dashboard](docs/images/dashboard-amethyst.png) | ![Rose dashboard](docs/images/dashboard-rose.png) | ![Graphite dashboard](docs/images/dashboard-graphite.png) |
+
+| Sand | Light | High contrast |
+| --- | --- | --- |
+| ![Sand dashboard](docs/images/dashboard-sand.png) | ![Light dashboard](docs/images/dashboard-light.png) | ![High contrast dashboard](docs/images/dashboard-contrast.png) |
+
+[Explore full-size screenshots and live themes on the website →](https://gbzyuuu.github.io/MultiJanela/#inside)
 
 ## Get started
 
