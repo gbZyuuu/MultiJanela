@@ -1,0 +1,11 @@
+<UserControl FontSize="{DynamicResource Font14}" FontFamily="{DynamicResource InterfaceFontFamily}" x:Class="RobloxMultiManager.BackupPanel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:RobloxMultiManager">
+    <StackPanel>
+        <TextBlock Text="{local:Tr 'Backup criptografado'}" FontSize="{DynamicResource Font21}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+        <TextBlock Text="{local:Tr 'Senha do backup · mínimo de 12 caracteres'}" Margin="0,0,0,8"/>
+        <PasswordBox x:Name="Password" Height="42" Margin="0,0,0,12" MaxLength="256"/>
+        <CheckBox x:Name="IncludeBrowsers" Content="{local:Tr 'Incluir perfis locais de login'}" Margin="0,0,0,8"/>
+        <TextBlock Text="{local:Tr 'Os perfis de login podem depender deste Windows. Feche as páginas de contas antes do backup. Limite: 256 MB.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,14"/>
+        <WrapPanel><Button Content="{local:Tr 'Criar backup'}" Click="Export_Click"/><Button Content="{local:Tr 'Restaurar backup'}" Click="Restore_Click" Style="{StaticResource SecondaryButtonStyle}" Margin="8,0,0,0"/></WrapPanel>
+        <TextBlock x:Name="Status" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,12,0,0"/>
+    </StackPanel>
+</UserControl>

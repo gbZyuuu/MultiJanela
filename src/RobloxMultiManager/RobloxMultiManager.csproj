@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <AssemblyName>RobloxMultiManager</AssemblyName>
+    <RootNamespace>RobloxMultiManager</RootNamespace>
+    <Product>MultiJanela para Roblox</Product>
+    <Description>Gerenciador não oficial de perfis, múltiplas instâncias e janelas do Roblox.</Description>
+    <!-- Multi-size icon so the taskbar picks 16 and the Explorer picks 256; a
+         single size is upscaled and looks blurred everywhere else. -->
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- DPI awareness is declared in app.manifest, which is the only mechanism
+         that works here. ApplicationHighDpiMode used to be set instead, but that
+         property is applied by the WinForms ApplicationConfiguration.Initialize
+         source generator, which a WPF entry point never calls, so it had no effect
+         at runtime and the process ran DPI-unaware: Windows handed it virtualised
+         monitor rectangles and then scaled every SetWindowPos coordinate, which
+         put arranged windows off-screen on any scaled display.
+
+         WFAC010 is the WinForms analyzer objecting to DPI settings living in the
+         manifest. It fires because UseWindowsForms is on, which this app needs
+         only for the tray icon; its suggested alternatives are WinForms startup
+         APIs that a WPF application does not run. The manifest stays. -->
+    <NoWarn>$(NoWarn);WFAC010</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RobloxMultiManager.Core\RobloxMultiManager.Core.csproj" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4078.44" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\PUBLIC_README.md" Link="README.md" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="..\..\NOTICE.md" Link="NOTICE.md" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="..\..\THIRD-PARTY-NOTICES.txt" Link="THIRD-PARTY-NOTICES.txt" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="..\..\LICENSE" Link="LICENSE" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

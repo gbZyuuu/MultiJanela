@@ -1,0 +1,91 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <SolidColorBrush x:Key="WindowBackground" Color="#10141C" />
+    <SolidColorBrush x:Key="Surface" Color="#1A202B" />
+    <SolidColorBrush x:Key="SurfaceRaised" Color="#252E3C" />
+    <SolidColorBrush x:Key="SurfaceInset" Color="#151B25" />
+    <SolidColorBrush x:Key="Hairline" Color="#465366" />
+    <SolidColorBrush x:Key="HairlineSoft" Color="#2B3545" />
+    <SolidColorBrush x:Key="Accent" Color="#98B6FF" />
+    <SolidColorBrush x:Key="AccentHover" Color="#B7CDFF" />
+    <SolidColorBrush x:Key="AccentPressed" Color="#7F9FE8" />
+    <SolidColorBrush x:Key="AccentSurface" Color="#252F45" />
+    <SolidColorBrush x:Key="AccentBorder" Color="#536C9B" />
+    <LinearGradientBrush x:Key="AccentGradient" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Offset="0" Color="#98B6FF" />
+        <GradientStop Offset="1" Color="#98B6FF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AccentGradientHover" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Offset="0" Color="#B7CDFF" />
+        <GradientStop Offset="1" Color="#B7CDFF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AccentGradientPressed" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Offset="0" Color="#7F9FE8" />
+        <GradientStop Offset="1" Color="#7F9FE8" />
+    </LinearGradientBrush>
+    <Color x:Key="AccentGlowColor">#98B6FF</Color>
+    <Color x:Key="ShadowColor">#020408</Color>
+    <SolidColorBrush x:Key="Info" Color="#93BDDF" />
+    <SolidColorBrush x:Key="InfoSurface" Color="#202D3A" />
+    <SolidColorBrush x:Key="TextPrimary" Color="#F5F6F8" />
+    <SolidColorBrush x:Key="TextMuted" Color="#BEC9D8" />
+    <SolidColorBrush x:Key="TextFaint" Color="#9DA5B8" />
+    <SolidColorBrush x:Key="Success" Color="#9BD8B0" />
+    <SolidColorBrush x:Key="SuccessSurface" Color="#1B3027" />
+    <SolidColorBrush x:Key="Warning" Color="#FBBF24" />
+    <SolidColorBrush x:Key="WarningSurface" Color="#2C210A" />
+    <SolidColorBrush x:Key="Danger" Color="#F87171" />
+    <SolidColorBrush x:Key="DangerSurface" Color="#2A1219" />
+    <SolidColorBrush x:Key="DangerBorder" Color="#4C1F2A" />
+    <SolidColorBrush x:Key="DangerText" Color="#FCA5A5" />
+    <SolidColorBrush x:Key="HoverOverlay" Color="#263244" />
+    <SolidColorBrush x:Key="SelectionRow" Color="#252F45" />
+    <SolidColorBrush x:Key="TextSelection" Color="#526992" />
+    <SolidColorBrush x:Key="ScrollThumb" Color="#46546B" />
+    <SolidColorBrush x:Key="ScrollThumbHover" Color="#697286" />
+    <SolidColorBrush x:Key="GlassBorder" Color="#3A3E45" />
+    <SolidColorBrush x:Key="GlassBorderHover" Color="#71888E" />
+    <SolidColorBrush x:Key="GlassHighlight" Color="#91A5AC" />
+    <LinearGradientBrush x:Key="SurfaceGlass" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#19262C" />
+        <GradientStop Offset="1" Color="#19262C" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SurfaceGlassRaised" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#252534" />
+        <GradientStop Offset="1" Color="#252534" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="AccentInk" Color="#111A2C" />
+    <SolidColorBrush x:Key="LaunchSurface" Color="#1B302A" />
+    <sys:Double x:Key="Font10">10</sys:Double>
+    <sys:Double x:Key="Font11">11</sys:Double>
+    <sys:Double x:Key="Font12">12</sys:Double>
+    <sys:Double x:Key="Font12.5">12.5</sys:Double>
+    <sys:Double x:Key="Font13">13</sys:Double>
+    <sys:Double x:Key="Font14">14</sys:Double>
+    <sys:Double x:Key="Font15">15</sys:Double>
+    <sys:Double x:Key="Font16">16</sys:Double>
+    <sys:Double x:Key="Font17">17</sys:Double>
+    <sys:Double x:Key="Font18">18</sys:Double>
+    <sys:Double x:Key="Font19">19</sys:Double>
+    <sys:Double x:Key="Font20">20</sys:Double>
+    <sys:Double x:Key="Font21">21</sys:Double>
+    <sys:Double x:Key="Font22">22</sys:Double>
+    <sys:Double x:Key="Font23">23</sys:Double>
+    <sys:Double x:Key="Font24">24</sys:Double>
+    <sys:Double x:Key="Font25">25</sys:Double>
+    <sys:Double x:Key="Font26">26</sys:Double>
+    <sys:Double x:Key="Font27">27</sys:Double>
+    <sys:Double x:Key="Font28">28</sys:Double>
+    <sys:Double x:Key="Font30">30</sys:Double>
+    <sys:Double x:Key="Font32">32</sys:Double>
+    <sys:Double x:Key="Font34">34</sys:Double>
+    <sys:Double x:Key="Font36">36</sys:Double>
+    <sys:Double x:Key="Font38">38</sys:Double>
+    <sys:Double x:Key="Font40">40</sys:Double>
+    <sys:Double x:Key="NavigationExpandedWidth">220</sys:Double>
+    <sys:Double x:Key="StudioTileHeight">190</sys:Double>
+    <sys:Double x:Key="StudioTileWidth">340</sys:Double>
+    <sys:Double x:Key="GameTileHeight">226</sys:Double>
+    <sys:Double x:Key="GameTileWidth">184</sys:Double>
+    <FontFamily x:Key="InterfaceFontFamily">Segoe UI</FontFamily>
+<sys:Double x:Key="ServerIdHeight">32</sys:Double><sys:Double x:Key="ServerTileWidth">220</sys:Double><sys:Double x:Key="ServerTileHeight">130</sys:Double>
+</ResourceDictionary>

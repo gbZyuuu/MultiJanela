@@ -1,0 +1,13 @@
+<UserControl FontSize="{DynamicResource Font14}" FontFamily="{DynamicResource InterfaceFontFamily}" x:Class="RobloxMultiManager.LocalApiPanel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:RobloxMultiManager">
+    <StackPanel>
+        <CheckBox x:Name="Enabled" Content="{local:Tr 'Ativar API local'}" Margin="0,0,0,12"/>
+        <TextBlock Text="{local:Tr 'Opcional. Permite que programas do seu PC consultem sessões e executem ações com sua autorização. Deixe desligado se não utiliza integrações.'}" Foreground="{DynamicResource TextMuted}" TextWrapping="Wrap" Margin="0,0,0,12"/>
+        <TextBlock Text="{local:Tr 'Porta'}" Margin="0,0,0,8"/><TextBox x:Name="Port" Text="18889" MaxLength="5" Width="110" HorizontalAlignment="Left" Margin="0,0,0,12"/>
+        <CheckBox x:Name="Actions" Content="{local:Tr 'Permitir executar ações e perfis'}" Margin="0,0,0,12"/>
+        <CheckBox x:Name="Rejoin" Content="{local:Tr 'Permitir fechar e reabrir sessões por API'}" Margin="0,0,0,12"/>
+        <CheckBox x:Name="Names" Content="{local:Tr 'Incluir nomes de contas e perfis nas respostas'}" Margin="0,0,0,12"/>
+        <WrapPanel><Button Content="{local:Tr 'Copiar chave'}" Click="Copy_Click" Style="{StaticResource GhostButtonStyle}" Margin="8,0"/><Button Content="{local:Tr 'Gerar nova chave'}" Click="Rotate_Click" Style="{StaticResource GhostButtonStyle}"/></WrapPanel>
+        <Expander Header="{local:Tr 'Referência da API'}" Style="{StaticResource StudioExpanderStyle}" Margin="0,18,0,0"><TextBlock Text="{local:Tr 'Rotas: status, accounts, sessions, presets e actions em /v1. Envie a chave no cabeçalho Authorization: Bearer.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,12,0,0"/></Expander>
+        <TextBlock x:Name="Status" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,12,0,0"/>
+    </StackPanel>
+</UserControl>

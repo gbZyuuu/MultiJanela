@@ -1,0 +1,29 @@
+<UserControl FontSize="{DynamicResource Font14}" FontFamily="{DynamicResource InterfaceFontFamily}" x:Class="RobloxMultiManager.AutomationPanel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:RobloxMultiManager">
+    <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel>
+        <TextBlock Text="{local:Tr 'Planeje a próxima abertura'}" FontSize="{DynamicResource Font21}" FontWeight="SemiBold"/>
+        <TextBlock Text="{local:Tr 'Agendamentos salvos'}" Style="{StaticResource FieldLabelStyle}" Margin="0,16,0,0"/>
+        <ComboBox x:Name="Schedules" DisplayMemberPath="Name" SelectionChanged="Schedule_Selected" Margin="0,12"/>
+        <Button Content="{local:Tr 'Novo agendamento'}" Click="New_Click" Style="{StaticResource GhostButtonStyle}" HorizontalAlignment="Left"/>
+        <TextBlock Text="{local:Tr 'Nome do agendamento'}" Style="{StaticResource FieldLabelStyle}" Margin="0,12,0,0"/>
+        <TextBox x:Name="NameInput" MaxLength="80" Margin="0,8" AutomationProperties.Name="{local:Tr 'Nome do agendamento'}"/>
+        <TextBlock Text="{local:Tr 'Ação'}" Style="{StaticResource FieldLabelStyle}"/>
+        <ComboBox x:Name="Action" SelectedValuePath="Tag" SelectedIndex="0" Margin="0,0,0,10"><ComboBoxItem Content="{local:Tr 'Abrir perfil'}" Tag="launch"/><ComboBoxItem Content="{local:Tr 'Reabrir sessões do perfil'}" Tag="rejoin"/><ComboBoxItem Content="{local:Tr 'Organizar janelas'}" Tag="arrange"/><ComboBoxItem Content="{local:Tr 'Enviar tecla F15'}" Tag="pulse"/></ComboBox>
+        <TextBlock Text="{local:Tr 'Perfil de abertura'}" Style="{StaticResource FieldLabelStyle}"/>
+        <TextBlock x:Name="NoPresets" Text="{local:Tr 'Crie um perfil em Coleções para agendar a abertura das contas.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+        <ComboBox x:Name="Preset" DisplayMemberPath="Name" Margin="0,0,0,10" AutomationProperties.Name="{local:Tr 'Perfil de abertura'}"/>
+        <WrapPanel Margin="0,4,0,8"><StackPanel Margin="0,0,14,0"><TextBlock Text="{local:Tr 'Data'}" Style="{StaticResource FieldLabelStyle}"/><DatePicker x:Name="Date" MinHeight="40"/></StackPanel><StackPanel Margin="0,0,14,0"><TextBlock Text="{local:Tr 'Horário'}" Style="{StaticResource FieldLabelStyle}"/><TextBox x:Name="Time" Width="100" ToolTip="HH:mm"/></StackPanel><StackPanel><TextBlock Text="{local:Tr 'Repetir a cada (min)'}" Style="{StaticResource FieldLabelStyle}"/><TextBox x:Name="Interval" Width="120" Text="0" AutomationProperties.Name="{local:Tr 'Intervalo em minutos'}"/></StackPanel></WrapPanel>
+        <TextBlock Text="{local:Tr 'Intervalo: 0 executa uma vez; repetição a partir de 5 minutos. O gerenciador precisa estar aberto.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,8,0,10"/>
+        <CheckBox x:Name="Enabled" Content="{local:Tr 'Agendamento ativado'}" Margin="0,0,0,10"/>
+        <CheckBox x:Name="AllowClose" Content="{local:Tr 'Permitir fechar e reabrir as sessões deste perfil'}" Margin="0,0,0,12"/>
+        <TextBlock Text="{local:Tr 'F15 envia somente uma solicitação de tecla; a resposta depende do cliente e da experiência.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,12"/>
+        <WrapPanel><Button Content="{local:Tr 'Salvar agendamento'}" Click="Save_Click"/><Button Content="{local:Tr 'Excluir'}" Click="Delete_Click" Style="{StaticResource GhostButtonStyle}" Margin="8,0"/><Button Content="{local:Tr 'Parar automação atual'}" Click="Stop_Click" Style="{StaticResource SecondaryButtonStyle}"/></WrapPanel>
+        <Expander Header="{local:Tr 'Receitas avançadas'}" Style="{StaticResource StudioExpanderStyle}" Margin="0,22,0,0"><StackPanel>
+        <TextBlock Text="{local:Tr 'Receitas de automação'}" FontSize="{DynamicResource Font21}" FontWeight="SemiBold"/>
+        <TextBlock Text="{local:Tr 'Passos permitidos: abrir perfil, reabrir perfil, organizar, aguardar, liberar memória e enviar F15.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,8,0,12"/>
+        <ComboBox x:Name="Recipes" DisplayMemberPath="Name" SelectionChanged="Recipe_Selected" Margin="0,0,0,10"/>
+        <TextBox x:Name="RecipeJson" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="180" MaxLength="16384" FontFamily="Consolas" FontSize="{DynamicResource Font13}"/>
+        <WrapPanel Margin="0,10,0,0"><Button Content="{local:Tr 'Novo exemplo'}" Click="Example_Click" Style="{StaticResource GhostButtonStyle}"/><Button Content="{local:Tr 'Salvar receita'}" Click="SaveRecipe_Click" Style="{StaticResource SecondaryButtonStyle}" Margin="8,0"/><Button Content="{local:Tr 'Executar receita'}" Click="RunRecipe_Click"/></WrapPanel>
+        </StackPanel></Expander>
+        <TextBlock x:Name="Status" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,12,0,0"/>
+    </StackPanel></ScrollViewer>
+</UserControl>

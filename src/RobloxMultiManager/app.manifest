@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity version="1.7.3.0" name="RobloxMultiManager.app" />
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <supportedOS Id="{4f476546-937d-4f8c-b4f6-1e09f8c4d9d9}" />
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
+    </application>
+  </compatibility>
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
+      <!-- This manifest replaces the SDK's default WPF one, which would have
+           declared DPI awareness itself. Without these two elements the process
+           was DPI-unaware: Windows reported virtualised monitor rectangles and
+           then scaled every SetWindowPos coordinate on the way out, so on a
+           scaled display the arranged windows were oversized and the last row and
+           column landed off-screen. The csproj already asked for PerMonitorV2 via
+           ApplicationHighDpiMode, but that property is only honoured by the
+           WinForms ApplicationConfiguration.Initialize generator, which this app
+           never calls, so the request had no effect at runtime. -->
+      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/pm</dpiAware>
+      <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2,PerMonitor</dpiAwareness>
+    </windowsSettings>
+  </application>
+</assembly>

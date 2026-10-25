@@ -1,0 +1,18 @@
+<UserControl x:Class="RobloxMultiManager.GraphicsPanel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:RobloxMultiManager" FontSize="{DynamicResource Font14}">
+    <StackPanel>
+        <TextBlock Text="{local:Tr 'Gráficos de abertura'}" FontSize="{DynamicResource Font22}" FontWeight="SemiBold"/>
+        <TextBlock Text="{local:Tr 'Um padrão para todas as contas. Ajuste uma conta quando precisar de algo diferente.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,8,0,18"/>
+        <CheckBox x:Name="Enabled" Content="{local:Tr 'Aplicar FPS e qualidade nas próximas aberturas'}" Margin="0,0,0,18"/>
+        <TextBlock Text="{local:Tr 'Configurar'}" Style="{StaticResource FieldLabelStyle}"/>
+        <ComboBox x:Name="Account" DisplayMemberPath="Name" SelectionChanged="Account_Changed" Margin="0,0,0,14" AutomationProperties.Name="{local:Tr 'Conta ou padrão global'}"/>
+        <CheckBox x:Name="UseGlobal" Content="{local:Tr 'Usar FPS e qualidade globais'}" Checked="UseGlobal_Changed" Unchecked="UseGlobal_Changed" Margin="0,0,0,18"/>
+        <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="18"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+            <StackPanel><TextBlock Text="FPS" Style="{StaticResource FieldLabelStyle}"/><ComboBox x:Name="Fps" SelectedValuePath="Tag" AutomationProperties.Name="FPS"><ComboBoxItem Content="{local:Tr 'Padrão do Roblox'}" Tag="-1"/><ComboBoxItem Content="30" Tag="30"/><ComboBoxItem Content="60" Tag="60"/><ComboBoxItem Content="120" Tag="120"/><ComboBoxItem Content="144" Tag="144"/><ComboBoxItem Content="165" Tag="165"/><ComboBoxItem Content="240" Tag="240"/></ComboBox></StackPanel>
+            <StackPanel Grid.Column="2"><TextBlock Text="{local:Tr 'Qualidade'}" Style="{StaticResource FieldLabelStyle}"/><DockPanel><TextBlock DockPanel.Dock="Right" Text="{Binding Value, ElementName=Quality, StringFormat={}{0:0}}" Width="28" HorizontalAlignment="Right" FontWeight="SemiBold"/><Slider x:Name="Quality" Minimum="0" Maximum="10" TickFrequency="1" IsSnapToTickEnabled="True" VerticalAlignment="Center" AutomationProperties.Name="{local:Tr 'Qualidade gráfica'}"/></DockPanel><TextBlock Text="{local:Tr '0 usa o modo automático'}" Foreground="{DynamicResource TextMuted}" FontSize="{DynamicResource Font13}" Margin="0,6,0,0"/></StackPanel>
+        </Grid>
+        <TextBlock x:Name="Mode" TextWrapping="Wrap" Foreground="{DynamicResource Accent}" Margin="0,16,0,12"/>
+        <WrapPanel><Button Content="{local:Tr 'Ler preferências do Roblox'}" Click="Read_Click" Style="{StaticResource GhostButtonStyle}" Margin="8,0"/></WrapPanel>
+        <TextBlock Text="{local:Tr 'Preferências aplicadas antes de abrir. O arquivo do Roblox é compartilhado; isto não é um limitador independente ao vivo.'}" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,16,0,0"/>
+        <TextBlock x:Name="Status" Foreground="{DynamicResource TextMuted}" TextWrapping="Wrap" Margin="0,12,0,0"/>
+    </StackPanel>
+</UserControl>

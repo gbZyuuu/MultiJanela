@@ -1,0 +1,101 @@
+<UserControl FontSize="{DynamicResource Font14}" FontFamily="{DynamicResource InterfaceFontFamily}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="RobloxMultiManager.QueueAccountsPanel" xmlns:local="clr-namespace:RobloxMultiManager">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Margin="0,16,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="SearchInput" Height="38" TextChanged="Search_Changed" ToolTip="{local:Tr 'Buscar por nome, usuário ou ID'}" AutomationProperties.Name="{local:Tr 'Buscar contas para a sequência'}" Margin="0,0,12,0" />
+            <Button Grid.Column="1" Content="{local:Tr 'Marcar visíveis'}" Style="{StaticResource SecondaryButtonStyle}" Click="SelectVisible_Click" />
+            <TextBlock Text="{local:Tr 'Buscar contas…'}" IsHitTestVisible="False" Foreground="{DynamicResource TextMuted}" Margin="12,0,24,0" VerticalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=SearchInput}" Value="">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="2">
+            <ListBox x:Name="AccountsList" Style="{StaticResource CardListStyle}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Setter Property="Margin" Value="0,0,0,8" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding IsChosen, Mode=TwoWay}" IsEnabled="{Binding CanChoose}" Cursor="Hand" AutomationProperties.Name="{Binding Profile.PublicName}">
+                            <CheckBox.Template>
+                                <ControlTemplate TargetType="CheckBox">
+                                    <Border x:Name="RowSurface" Padding="15,13" CornerRadius="12" BorderThickness="1" Background="{DynamicResource SurfaceRaised}">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource Hairline}" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsChosen}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <CheckBox IsChecked="{Binding IsChosen, Mode=OneWay}" IsHitTestVisible="False" Focusable="False" VerticalAlignment="Center" Margin="0,0,14,0" />
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Text="{Binding Profile.PublicName}" FontSize="{DynamicResource Font14}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+                                                <TextBlock Text="{Binding Profile.AccountDisplay}" FontSize="{DynamicResource Font14}" Foreground="{DynamicResource TextMuted}" Margin="0,5,0,0" TextTrimming="CharacterEllipsis" />
+                                            </StackPanel>
+                                            <TextBlock Grid.Column="2" Text="{Binding Status}" Foreground="{DynamicResource TextFaint}" FontSize="{DynamicResource Font14}" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                        </Grid>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsKeyboardFocused" Value="True">
+                                            <Setter TargetName="RowSurface" Property="BorderBrush" Value="{DynamicResource Accent}" />
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="RowSurface" Property="Opacity" Value="0.6" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </CheckBox.Template>
+                        </CheckBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock x:Name="EmptyText" Text="{local:Tr 'Nenhuma conta encontrada.'}" Foreground="{DynamicResource TextMuted}" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="3" Margin="0,16,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="SelectionText" Foreground="{DynamicResource TextMuted}" FontSize="{DynamicResource Font14}" VerticalAlignment="Center" />
+            <Button Grid.Column="1" Content="{local:Tr 'Cancelar'}" Style="{StaticResource GhostButtonStyle}" Click="Cancel_Click" Margin="8,0" />
+            <Button Grid.Column="2" x:Name="AddButton" Content="{local:Tr 'Adicionar contas'}" Click="Add_Click" />
+        </Grid>
+    </Grid>
+</UserControl>

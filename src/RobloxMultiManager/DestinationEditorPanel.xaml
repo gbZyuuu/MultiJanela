@@ -1,0 +1,20 @@
+<UserControl FontSize="{DynamicResource Font14}" FontFamily="{DynamicResource InterfaceFontFamily}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="RobloxMultiManager.DestinationEditorPanel" xmlns:local="clr-namespace:RobloxMultiManager">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="{local:Tr 'Nome'}" FontSize="{DynamicResource Font16}" FontWeight="SemiBold" Margin="0,6,0,8" />
+            <TextBox x:Name="NameInput" Height="42" MaxLength="80" AutomationProperties.Name="{local:Tr 'Nome do destino salvo'}" />
+            <TextBlock Text="{local:Tr 'Link ou PlaceId'}" FontSize="{DynamicResource Font16}" FontWeight="SemiBold" Margin="0,22,0,8" />
+            <TextBox x:Name="LinkInput" MinHeight="76" TextWrapping="Wrap" AcceptsReturn="False" VerticalContentAlignment="Top" Padding="12,10" AutomationProperties.Name="{local:Tr 'Link ou PlaceId do destino salvo'}" />
+            <TextBlock Text="{local:Tr 'Aceita jogo, servidor privado e convite /share. O destino fica salvo neste computador.'}" Foreground="{DynamicResource TextMuted}" TextWrapping="Wrap" Margin="0,12,0,0" FontSize="{DynamicResource Font14}" />
+            <TextBlock x:Name="ErrorText" Foreground="{DynamicResource DangerText}" TextWrapping="Wrap" Margin="0,16,0,0" FontSize="{DynamicResource Font14}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button x:Name="CancelButton" Content="{local:Tr 'Cancelar'}" Click="Cancel_Click" Style="{StaticResource GhostButtonStyle}" Margin="0,0,12,0" />
+            <Button x:Name="SaveButton" Content="{local:Tr 'Salvar destino'}" Click="Save_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

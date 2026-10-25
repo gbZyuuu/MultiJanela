@@ -1,0 +1,10 @@
+<UserControl FontSize="{DynamicResource Font14}" FontFamily="{DynamicResource InterfaceFontFamily}" x:Class="RobloxMultiManager.NotificationsPanel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:RobloxMultiManager">
+    <StackPanel>
+        <CheckBox x:Name="Desktop" Content="{local:Tr 'Notificações na área de trabalho'}" Margin="0,0,0,12"/>
+        <CheckBox x:Name="Webhook" Content="{local:Tr 'Enviar eventos para um webhook'}" Margin="0,0,0,8"/>
+        <TextBlock Text="{local:Tr 'Somente tipo de evento e quantidade de sessões; sem nomes ou links privados.'}" Foreground="{DynamicResource TextMuted}" TextWrapping="Wrap" Margin="0,0,0,8"/>
+        <PasswordBox x:Name="Address" Height="42" MaxLength="2048" Margin="0,0,0,12"/>
+        <WrapPanel><Button Content="{local:Tr 'Enviar teste'}" Click="Test_Click" Style="{StaticResource GhostButtonStyle}" Margin="8,0"/></WrapPanel>
+        <TextBlock x:Name="Status" TextWrapping="Wrap" Foreground="{DynamicResource TextMuted}" Margin="0,12,0,0"/>
+    </StackPanel>
+</UserControl>

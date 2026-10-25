@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <AssemblyName>RobloxMultiManager.Core</AssemblyName>
+    <RootNamespace>RobloxMultiManager.Core</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup><EmbeddedResource Include="Localization.en.json" WithCulture="false" LogicalName="RobloxMultiManager.Core.Localization.en.json" /></ItemGroup>
+  <ItemGroup><FrameworkReference Include="Microsoft.AspNetCore.App" /></ItemGroup>
+</Project>

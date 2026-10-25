@@ -1,0 +1,10 @@
+<UserControl FontSize="{DynamicResource Font14}" FontFamily="{DynamicResource InterfaceFontFamily}" x:Class="RobloxMultiManager.ProcessTuningPanel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:RobloxMultiManager">
+    <StackPanel>
+        <CheckBox x:Name="Enabled" Content="{local:Tr 'Ativar ajustes de processo'}" Margin="0,0,0,12"/>
+        <CheckBox x:Name="Priority" Content="{local:Tr 'Prioridade abaixo do normal'}" Margin="0,0,0,12"/>
+        <CheckBox x:Name="Eco" Content="{local:Tr 'Economia de energia com EcoQoS'}" Margin="0,0,0,12"/>
+        <CheckBox x:Name="OnlyBackgroundCheck" Content="{local:Tr 'Aplicar apenas às janelas em segundo plano'}" IsChecked="True" Margin="0,0,0,12"/>
+        <WrapPanel><Button Content="{local:Tr 'Liberar memória de trabalho'}" Click="Trim_Click" Style="{StaticResource GhostButtonStyle}" Margin="8,0"/></WrapPanel>
+        <TextBlock x:Name="Status" Foreground="{DynamicResource TextMuted}" TextWrapping="Wrap" Margin="0,10,0,0"/>
+    </StackPanel>
+</UserControl>
