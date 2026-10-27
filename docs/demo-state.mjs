@@ -24,11 +24,11 @@ export const outfits = [
  {id:4,name:'Weekend',shirt:'#efabbd',skin:'#f3c39b',hat:false,bag:false}
 ];
 export function freshState(){return {
- view:'accounts',account:1,tab:'friends',tool:'audio',theme:'midnight',motion:true,scale:100,global:{cpu:65,fps:60,quality:3},
+ view:'accounts',account:1,tab:'friends',tool:'batches',theme:'midnight',motion:true,scale:100,global:{cpu:65,fps:60,quality:3},
  accounts:['Aurora','Nova','Orbit','Atlas','Luna','Cosmo'].map((name,i)=>({id:i+1,name,avatar:i,cpu:null,fps:null,quality:null,version:null,volume:80,muted:false,look:{...outfits[i%4]}})),
  sessions:[{id:1,pid:18240,game:'Sky Islands',version:'0.744.0.7441080',selected:false,seconds:1800},{id:2,pid:18264,game:'Sky Islands',version:'0.744.0.7441080',selected:false,seconds:420}],
  queue:[1,2,3],destination:'Sky Islands',presets:[{id:1,name:'Adventure crew',queue:[1,2,3],destination:'Sky Islands'}],
- favorites:[],friends:[{id:1,name:'Stella',game:'Sky Islands',alias:''},{id:2,name:'Kite',game:'Forest Stories',alias:''},{id:3,name:'Milo',game:'Neon Circuit',alias:''},{id:4,name:'Sunny',game:'',alias:''},{id:5,name:'Fern',game:'',alias:''}],
+ accountGroups:[],metadata:{},favorites:[],friends:[{id:1,name:'Stella',game:'Sky Islands',alias:''},{id:2,name:'Kite',game:'Forest Stories',alias:''},{id:3,name:'Milo',game:'Neon Circuit',alias:''},{id:4,name:'Sunny',game:'',alias:''},{id:5,name:'Fern',game:'',alias:''}],
  groups:[{id:1,name:'Adventure club',members:1240,joined:true},{id:2,name:'Night builders',members:860,joined:true},{id:3,name:'Pixel creators',members:420,joined:false}],
  outfits:structuredClone(outfits),version:'0.744.0.7441080',history:[],progress:[],api:false,nexus:false,backgroundMute:false,macro:false
 };}
@@ -55,11 +55,18 @@ export function transition(state,action){
  case 'friend-remove':s.friends=s.friends.filter(f=>f.id!==id);break;
  case 'friend-alias':{const f=s.friends.find(f=>f.id===id);if(f)f.alias=String(action.value).trim().slice(0,30);break;}
  case 'group':{const g=s.groups.find(g=>g.id===id);if(g){g.joined=!g.joined;g.members+=g.joined?1:-1;}break;}
+ case 'group-save':{const gid=Number(action.groupId);const found=s.accountGroups.find(g=>g.id===gid);const group={id:gid||Math.max(0,...s.accountGroups.map(g=>g.id))+1,name:String(action.name).trim().slice(0,80)||'Group',accounts:[...action.accounts]};if(found)Object.assign(found,group);else s.accountGroups.push(group);break;}
+ case 'group-delete':s.accountGroups=s.accountGroups.filter(g=>g.id!==Number(action.groupId));break;
+ case 'metadata-save':if(a)s.metadata[id]={tags:String(action.tags).slice(0,1000),notes:String(action.notes).slice(0,4000),fields:String(action.fields).slice(0,12000)};break;
+ case 'preset-update':{const p=s.presets.find(p=>p.id===id);if(p){p.name=String(action.name).trim().slice(0,80)||p.name;p.destination=String(action.destination).slice(0,2048);p.queue=[...action.accounts];p.delay=Number(action.delay)||0;p.cpu=Number(action.cpu)||100;}break;}
  case 'preset-save':if(s.queue.length)s.presets.push({id:Math.max(0,...s.presets.map(p=>p.id))+1,name:String(action.value).trim().slice(0,40)||'My preset',queue:[...s.queue],destination:s.destination});break;
  case 'preset-load':{const p=s.presets.find(p=>p.id===id);if(p){s.queue=[...p.queue];s.destination=p.destination;}break;}
  case 'preset-delete':s.presets=s.presets.filter(p=>p.id!==id);break;
  case 'look':if(a)a.look={...action.value};break;
- case 'account-add':if(s.accounts.length<12){const n=Math.max(...s.accounts.map(a=>a.id))+1;s.accounts.push({id:n,name:String(action.value).trim().slice(0,25)||`Player ${n}`,avatar:(n-1)%6,cpu:null,fps:null,quality:null,version:null,volume:80,muted:false,look:{...outfits[0]}});}break;
+ case 'account-rename':if(a)a.name=String(action.value).trim().slice(0,25)||a.name;break;
+ case 'account-move':{const i=s.accounts.findIndex(a=>a.id===id),j=Math.max(0,Math.min(s.accounts.length-1,i+Number(action.delta)));if(i>=0&&i!==j){const [item]=s.accounts.splice(i,1);s.accounts.splice(j,0,item)}break;}
+ case 'account-remove':s.accounts=s.accounts.filter(a=>a.id!==id);s.sessions=s.sessions.filter(x=>x.id!==id);s.queue=s.queue.filter(x=>x!==id);s.accountGroups.forEach(g=>g.accounts=g.accounts.filter(x=>x!==id));s.presets.forEach(p=>p.queue=p.queue.filter(x=>x!==id));if(s.account===id)s.account=s.accounts[0]?.id||0;break;
+ case 'account-add':if(s.accounts.length<12){const n=Math.max(0,...s.accounts.map(a=>a.id))+1;s.accounts.push({id:n,name:String(action.value).trim().slice(0,25)||`Player ${n}`,avatar:(n-1)%6,cpu:null,fps:null,quality:null,version:null,volume:80,muted:false,look:{...outfits[0]}});}break;
  }
  return s;
 }
